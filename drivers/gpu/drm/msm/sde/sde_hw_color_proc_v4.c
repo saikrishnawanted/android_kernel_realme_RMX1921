@@ -14,7 +14,6 @@
 #include "sde_hw_color_proc_common_v4.h"
 #include "sde_hw_color_proc_v4.h"
 
-<<<<<<< HEAD
 #ifdef CONFIG_KLAPSE
 #include <linux/klapse.h>
 
