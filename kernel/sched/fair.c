@@ -7428,7 +7428,6 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 					new_util_cuml > best_idle_cuml_util)))
 					continue;
 
-				/* Keep track of best idle CPU */
 				target_capacity = capacity_orig;
 				target_idle_max_spare_cap = capacity_orig -
 							    min_capped_util;
