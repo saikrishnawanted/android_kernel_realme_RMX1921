@@ -1,3 +1,4 @@
+
 /*
  * Block data types and constants.  Directly include this file only to
  * break include dependency loop.
@@ -130,6 +131,11 @@ struct bio {
 #define BIO_QUIET	7	/* Make BIO Quiet */
 #define BIO_CHAIN	8	/* chained bio, ->bi_remaining in effect */
 #define BIO_REFFED	9	/* bio has elevated ->bi_cnt */
+#define BIO_THROTTLED	10	/* This bio has already been subjected to
+				 * throttling rules. Don't do it again. */
+#define BIO_TRACE_COMPLETION 11	/* bio_endio() should trace the final completion
+				 * of this bio. */
+/* See BVEC_POOL_OFFSET below before adding new flags */
 
 /*
  * Flags starting here get preserved by bio_reset() - this includes
