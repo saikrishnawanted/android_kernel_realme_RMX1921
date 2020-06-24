@@ -379,6 +379,7 @@ struct smb_charger {
 	bool			disable_stat_sw_override;
 	bool			in_chg_lock;
 	bool			fcc_stepper_enable;
+	bool			ufp_only_mode;
 
 	/* workaround flag */
 	u32			wa_flags;

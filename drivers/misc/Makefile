@@ -70,6 +70,11 @@ obj-y				+= oppo_motor/
 # Mengmeng.Wang@SRC.System, 2018/08/28, Add for oiface
 obj-y				+= schedx.o
 #endif
+obj-$(CONFIG_QCOM_XR_SMRTVWR_MISC) += qcom-xr-smrtvwr-misc.o
+obj-$(CONFIG_TUSB1064_XR_MISC) += tusb1064.o
+obj-$(CONFIG_VXR200_XR_MISC) += vxr7200.o
+
+
 lkdtm-$(CONFIG_LKDTM)		+= lkdtm_core.o
 lkdtm-$(CONFIG_LKDTM)		+= lkdtm_bugs.o
 lkdtm-$(CONFIG_LKDTM)		+= lkdtm_heap.o

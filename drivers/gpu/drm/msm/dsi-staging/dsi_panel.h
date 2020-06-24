@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2016-2020, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -164,6 +164,17 @@ enum dsi_panel_type {
 	DSI_PANEL = 0,
 	EXT_BRIDGE,
 	DSI_PANEL_TYPE_MAX,
+};
+
+/* Extended Panel config for panels with additional gpios */
+struct dsi_panel_exd_config {
+	int display_1p8_en;
+	int led_5v_en;
+	int switch_power;
+	int led_en1;
+	int led_en2;
+	int oenab;
+	int selab;
 };
 
 struct dsi_panel {

@@ -98,7 +98,6 @@ static int slave_alloc (struct scsi_device *sdev)
 #endif
 
 	/*
-	 * Some host controllers may have alignment requirements.
 	 * We'll play it safe by requiring 512-byte alignment always.
 	 */
 	blk_queue_update_dma_alignment(sdev->request_queue, (512 - 1));
