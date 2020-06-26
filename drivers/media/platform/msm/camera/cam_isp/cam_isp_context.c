@@ -741,7 +741,6 @@ static int __cam_isp_ctx_epoch_in_applied(struct cam_isp_context *ctx_isp,
 		notify.req_id = req->request_id;
 		notify.error = CRM_KMD_ERR_BUBBLE;
 		ctx->ctx_crm_intf->notify_err(&notify);
-		atomic_set(&ctx_isp->process_bubble, 1);
 		CAM_DBG(CAM_ISP, "Notify CRM about Bubble frame %lld",
 			ctx_isp->frame_id);
 	} else {
@@ -2400,8 +2399,6 @@ static int __cam_isp_ctx_start_dev_in_ready(struct cam_context *ctx,
 	arg.init_packet = 1;
 #endif
 
-	atomic_set(&ctx_isp->process_bubble, 0);
-	atomic_set(&ctx_isp->bubble_sof_count, 0);
 	ctx_isp->frame_id = 0;
 	ctx_isp->active_req_cnt = 0;
 	ctx_isp->reported_req_id = 0;
@@ -2500,8 +2497,6 @@ static int __cam_isp_ctx_stop_dev_in_activated_unlock(
 	ctx_isp->frame_id = 0;
 	ctx_isp->active_req_cnt = 0;
 	ctx_isp->reported_req_id = 0;
-	atomic_set(&ctx_isp->process_bubble, 0);
-	atomic_set(&ctx_isp->bubble_sof_count, 0);
 
 	CAM_DBG(CAM_ISP, "ctx_id:%d next state %d",ctx->ctx_id, ctx->state);
 	return rc;
