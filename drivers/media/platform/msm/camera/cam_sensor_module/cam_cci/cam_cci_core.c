@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -561,6 +561,7 @@ void cam_cci_get_clk_rates(struct cci_device *cci_dev,
 			return;
 		}
 	}
+	return;
 }
 
 static int32_t cam_cci_set_clk_param(struct cci_device *cci_dev,
@@ -1369,14 +1370,10 @@ int32_t cam_cci_core_cfg(struct v4l2_subdev *sd,
 #endif
 	switch (cci_ctrl->cmd) {
 	case MSM_CCI_INIT:
-		mutex_lock(&cci_dev->init_mutex);
 		rc = cam_cci_init(sd, cci_ctrl);
-		mutex_unlock(&cci_dev->init_mutex);
 		break;
 	case MSM_CCI_RELEASE:
-		mutex_lock(&cci_dev->init_mutex);
 		rc = cam_cci_release(sd);
-		mutex_unlock(&cci_dev->init_mutex);
 		break;
 	case MSM_CCI_I2C_READ:
 		rc = cam_cci_read_bytes(sd, cci_ctrl);
