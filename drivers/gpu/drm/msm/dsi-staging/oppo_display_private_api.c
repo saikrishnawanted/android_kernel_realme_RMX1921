@@ -1821,7 +1821,7 @@ int brightness_to_alpha(int brightness)
 	if (brightness == 0 || brightness == 1)
 		return alpha_save;
 
-	if (oppo_dimlayer_hbm)
+	if (oppo_dimlayer_hbm && !device_is_dozing())
 		alpha = bl_to_alpha(brightness);
 	else
 		alpha = bl_to_alpha_dc(brightness);
