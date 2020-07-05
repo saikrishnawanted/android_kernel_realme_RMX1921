@@ -31,7 +31,6 @@
 #include <asm/uaccess.h>
 #include <asm/fcntl.h>
 
-#include <drm/drm_notifier.h>
 #include <soc/qcom/socinfo.h>
 
 #ifdef CONFIG_KLAPSE
