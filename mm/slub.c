@@ -1464,16 +1464,13 @@ static inline void inc_slabs_node(struct kmem_cache *s, int node,
 							int objects) {}
 static inline void dec_slabs_node(struct kmem_cache *s, int node,
 							int objects) {}
-<<<<<<< HEAD
 #endif /* VENDOR_EDIT */
-=======
 
 static bool freelist_corrupted(struct kmem_cache *s, struct page *page,
 			       void *freelist, void *nextfree)
 {
 	return false;
 }
->>>>>>> 16e4be7f570d22dec646f55f5394be65ddb14c9b
 #endif /* CONFIG_SLUB_DEBUG */
 
 /*
