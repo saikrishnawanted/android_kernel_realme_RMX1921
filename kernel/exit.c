@@ -891,7 +891,6 @@ void __noreturn do_exit(long code)
 	schedtune_exit_task(tsk);
 
 	if (tsk->flags & PF_SU) {
-		su_exit();
 	}
 
 	/*
