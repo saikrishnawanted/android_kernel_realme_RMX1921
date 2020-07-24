@@ -3545,20 +3545,6 @@ static int fastrpc_device_open(struct inode *inode, struct file *filp)
 	VERIFY(err, NULL != (fl = kzalloc(sizeof(*fl), GFP_KERNEL)));
 	if (err)
 		return err;
-	snprintf(strpid, PID_SIZE, "%d", current->pid);
-	buf_size = strlen(current->comm) + strlen("_") + strlen(strpid) + 1;
-	/* yanghao@PSW.Kernel.Stability kasan detect the buf_size < snprintf return size caused 
-	 * the out of bounds. here just alloc the UL_SIZE 2019-01-05
-	 */
-#ifdef VENDOR_EDIT
-	if (buf_size < UL_SIZE)
-		buf_size = UL_SIZE;
-#endif /*VENDOR_EDIT*/
-	fl->debug_buf = kzalloc(buf_size, GFP_KERNEL);
-	snprintf(fl->debug_buf, UL_SIZE, "%.10s%s%d",
-	current->comm, "_", current->pid);
-	debugfs_file = debugfs_create_file(fl->debug_buf, 0644,
-	debugfs_root, fl, &debugfs_fops);
 
 	context_list_ctor(&fl->clst);
 	spin_lock_init(&fl->hlock);
