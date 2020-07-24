@@ -5168,3 +5168,4 @@ static void __exit dwc3_msm_exit(void)
 	platform_driver_unregister(&dwc3_msm_driver);
 }
 module_exit(dwc3_msm_exit);
+
