@@ -141,10 +141,6 @@ static void hans_handler(struct sk_buff *skb)
 				printk(KERN_ERR "%s: --> PKG, uid = %d, pkg_cmd = %d\n", __func__, data->target_uid, data->pkg_cmd);
 				hans_network_cmd_parse(data->target_uid, data->pkg_cmd);
 				break;
-			case FROZEN_TRANS:
-				printk(KERN_ERR "%s: --> FROZEN_TRANS, uid = %d\n", __func__, data->target_uid);
-				hans_check_frozen_transcation(data->target_uid);
-				break;
 
 			default:
 				pr_err("%s: hans_messag type invalid %d\n", __func__, data->type);
