@@ -7437,15 +7437,6 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 			 */
 			new_util = max(min_util, new_util);
 
-			/*
-			 * Include minimum capacity constraint:
-			 * new_util contains the required utilization including
-			 * boost. min_capped_util also takes into account a
-			 * minimum capacity cap imposed on the CPU by external
-			 * actors.
-			 */
-			min_capped_util = max(new_util, capacity_min_of(i));
-
 			if (cpu_check_overutil_condition(i, new_util))
 				continue;
 
@@ -7608,8 +7599,6 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 					continue;
 
 				target_capacity = capacity_orig;
-				target_idle_max_spare_cap = capacity_orig -
-							    min_capped_util;
 				best_idle_cstate = idle_idx;
 				best_idle_cuml_util = new_util_cuml;
 				best_idle_cpu = i;
