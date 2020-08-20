@@ -3171,7 +3171,6 @@ static inline void sched_exit(struct task_struct *p) { }
 
 #ifdef VENDOR_EDIT
 //cuixiaogang@swdp.shanghai, 2018/3/18, export some symbol
-extern int sched_boost(void);
 extern int sched_set_updown_migrate(unsigned int *up_pct, unsigned int *down_pct);
 extern void sched_get_updown_migrate(unsigned int *up_pct, unsigned int *down_pct);
 #endif /* VENDOR_EDIT */
